@@ -1,0 +1,27 @@
+html
+  head
+    title()
+    style.
+       * { font-size: 32px; } 
+       a { text-decoration:none } 
+  body
+    ul
+      li
+        a(style="color:blue;" href="#{last}") 返回上层
+      each file, i in files
+        if (file.isDir)
+          li
+            a(style="color:blue;" href="#{file.url}")= file.name
+        else
+          case (file.ext)
+            when '.avi'
+            when '.mp4'
+            when '.mkv'
+              li
+                a(style="color:red;" href="#{file.url}")= file.name
+            when '.jpg'
+              li
+                img(style="" src="#{file.url}")
+            default
+              li
+                a(style="color:black;" href="#{file.url}")= file.name
